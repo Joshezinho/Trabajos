@@ -1,0 +1,4 @@
+[2,"\n"]
+[1,"pandoc \n  to: html\n  output-file: Práctico 3.html\n  standalone: true\n  section-divs: true\n  html-math-method: mathjax\n  wrap: none\n  default-image-extension: png\n  \nmetadata\n  document-css: false\n  link-citations: true\n  date-format: long\n  lang: en\n  title: 'Desigualdad Educativa en Chile: Perspectiva sobre el Acceso y Efectos en Pueblos Originarios'\n  editor: visual\n  bibliography:\n    - Trabajo.bib\n  \n"]
+[1,"Output created: Práctico 3.html\n\nWatching files for changes\n"]
+[1,"Browse at http://localhost:5903/\n"]
