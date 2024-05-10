@@ -230,6 +230,11 @@
             "title-short": "Una generación <<sin miedo>>",
             "type": "article-journal",
             "volume": "27"
+        },
+        {
+            "genre": "Article",
+            "id": "zotero-40",
+            "type": "article-journal"
         }
     ],
     "project_biblios": []
