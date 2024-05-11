@@ -46,3 +46,20 @@ pacman::p_load(sjlabelled,
 ##### Cargar base de datos.
 
 Para este informe, con antelación, procesé la base de datos del COES, específicamente la base de datos ELSOC, la cual poseía muchísimas variables como también casos. Lo que hice en el marco de este análisis fue procesarla para poder quedarme sólo con las variables que me interesa trabajar, sobre todo con las personas que respondieron que sentían algún grado de simpatía superior por el movimiento estudiantil chileno por sobre otros movimientos sociales.
+
+```{r}
+load(url("https://github.com/Joshezinho/Trabajos/raw/main/input/elsoc.rdata"))
+```
+
+##### Visualizar nombre de las variables
+
+```{r}
+names(elsoc)
+sjlabelled::get_label(elsoc)
+```
+
+En este caso trabajaré con nueve variables que extrajé de la base de datos de ELSOC, siendo estas
+
+En este caso trabajaré con siete variables que me otorga la base de datos de la CASEN, siendo estas la pertenencia a algún pueblo originario, el nivel educativo, el tipo de establecimiento de educación superior, si para el año 2022 poseía gratuidad, como también si optó por algún tipo de crédito, si la persona tiene trabajo (o trabajó al menos el mes pasado) y los ingresos del mes pasado.
+
+Estas variables me ayudarán a entender si realmente existe una brecha en cuanto al acceso a la educación superior y por supuesto generar la comparativa entre el nivel educativo, la inserción laboral y de la mano los ingresos.
