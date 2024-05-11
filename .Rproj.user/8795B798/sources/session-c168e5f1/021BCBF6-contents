@@ -95,9 +95,8 @@ sjt.xtab(elsoc$apoyo_mov_soc, elsoc$sexo,
 ```
 
 ```{r}
-{r}
 graph1 <- ggplot(elsoc, aes(x = as.numeric(edad))) +
-  geom_histogram(binwidth=0.6, colour="black", fill="yellow") +
+  geom_histogram(binwidth=0.9, colour="black", fill="purple") +
   theme_bw() +
   xlab("Edad") +
   ylab("Cantidad")
@@ -153,5 +152,24 @@ elsoc %>%
 ```
 
 ```{r}
+#| label: tab-6
 
+#| fig-cap: “Plots”
+sjt.xtab(elsoc$apoyo_mov_soc, elsoc$edad_groups,
+        show.col.prc=TRUE,
+        show.summary=FALSE,
+        encoding = "UTF-8")
+```
+
+```{r}
+graph4 <- elsoc %>% 
+  na.omit() %>% 
+  ggplot(aes(x = apoyo_mov_soc, fill = edad_groups)) + 
+  geom_bar() +
+  xlab("Apoyo al movimiento estudiantil chileno") +
+  ylab("Cantidad") + 
+  labs(fill="Sexo")+
+  scale_fill_discrete(labels = c('Entre 18 y 25 años','Entre 26 y 39 años', "Entre 40 y 65 años", "Más de 65 años"))
+
+graph4
 ```

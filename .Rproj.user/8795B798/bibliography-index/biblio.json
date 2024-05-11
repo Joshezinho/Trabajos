@@ -1,4 +1,278 @@
 {
-    "sources": [],
+    "sources": [
+        {
+            "DOI": "10.31619/caledu.n26.233",
+            "ISSN": "0718-4565, 0717-4004",
+            "abstract": "The paper reflects on the presence of indigenous peoples in the higher education system, focusing on the Mapuche; it extends the debate to the broader issue of cultural diversity. The paper traces the historical route that has made the Mapuche presence possible and the current challenge that this poses for higher education institutions, the state and society as a whole. The authors suggest that the mass coverage offered by higher education has failed to solve the problem of inequality (which is particularly prevalent among indigenous peoples). The existence of more diverse university communities needs to be discussed and requires policies that go beyond the issue of access to higher education. Coexistence is also an issue that needs to be addressed as well as the contents that articulate academic activities as a whole. , Este trabajo reflexiona sobre la presencia de indígenas en el sistema de educación superior, centrándose en el caso mapuche pero proyectando la discusión hacia el tema más amplio de la diversidad cultural. Traza el recorrido histórico que hizo posible esta presencia y el desafío actual que representa para las instituciones de educación superior, el Estado y la sociedad en su conjunto. Plantea que la masificación de la educación superior no ha resuelto el problema de la inequidad (lo que afecta de manera particular a las sociedades indígenas) y que, al mismo tiempo, la existencia de comunidades universitarias más diversas requiere un debate y políticas que trasciendan el problema del acceso para abordar tanto la convivencia como los contenidos que articulan la actividad académica en su conjunto.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        3,
+                        25
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Abarca",
+                    "given": "Geraldine"
+                },
+                {
+                    "family": "Zapata",
+                    "given": "Claudia"
+                }
+            ],
+            "container-title": "Calidad en la Educación",
+            "id": "abarcaIndigenasEducacionSuperior2007",
+            "issue": "26",
+            "issued": {
+                "date-parts": [
+                    [
+                        2007,
+                        5
+                    ]
+                ]
+            },
+            "page": "57-79",
+            "title": "Indígenas y educación superior en Chile: El caso mapuche.",
+            "title-short": "Indígenas y educación superior en Chile",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.31619/caledu.n28.208",
+            "abstract": "This article shows results from a case study aimed to learn more about the experience of indigenous girls studying at universities in Chile, because they represent one of the groups who experience a high level of educational inequity. The study addresses the relationship among educational record, experience in universities and ethnic identities considering three Chilean indigenous people: Aimara, Mapuche and Rapa Nui.",
+            "annote": "MAG ID: 49002233",
+            "author": [
+                {
+                    "literal": "Carolina Maillard"
+                },
+                {
+                    "family": "Maillard",
+                    "given": "Carolina"
+                },
+                {
+                    "literal": "Gloria María Agudelo Ochoa"
+                },
+                {
+                    "family": "Ochoa",
+                    "given": "Gloria"
+                },
+                {
+                    "literal": "Andrea Valdivia"
+                },
+                {
+                    "family": "Valdivia",
+                    "given": "Andrea"
+                }
+            ],
+            "id": "carolinamaillardExperienciaEducativaIdentidades2008",
+            "issue": "28",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008,
+                        4
+                    ]
+                ]
+            },
+            "page": "175-201",
+            "title": "Experiencia educativa e identidades Étnicas en estudiantes universitarias indígenas de la Región Metropolitana.",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.31619/caledu.n30.175",
+            "abstract": "The present article shows findings from a research called “Itinerary of life of rural people who as first generation access to higher education and its mobility dynamics at Maule region”, which carried out 32 biographical interviews to professionals of cohort 2003-2004 pertaining to three private and three public universities of the region. The study reports that the university education operates as a mechanism of social mobility in the low class, i.e. poor, and in the lower middle class. In the case of the middle class, it increases standards of living and wellbeing. Nevertheless and due to an increasing overcrowding of university systems, credentials have lose their function to facilitate social ascent, so it is required to develop other devices such as social contacts and individual share capital in order to hold or to improve the social position.",
+            "annote": "MAG ID: 21647467",
+            "author": [
+                {
+                    "literal": "Claudia Concha"
+                },
+                {
+                    "literal": "Claudia Concha"
+                },
+                {
+                    "family": "Concha",
+                    "given": "Claudia"
+                }
+            ],
+            "id": "claudiaconchaSujetosRuralesQue2009",
+            "issue": "30",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009,
+                        4
+                    ]
+                ]
+            },
+            "page": "122-158",
+            "title": "Sujetos rurales que por primera generación acceden a la universidad y su dinámica de movilidad social en la Región del Maule",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.4067/S0718-07052006000100002",
+            "ISSN": "0718-0705",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        3,
+                        25
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Donoso Romo",
+                    "given": "Andrés"
+                },
+                {
+                    "family": "Contreras Mühlenbrock",
+                    "given": "Rafael"
+                },
+                {
+                    "family": "Cubillos Puelma",
+                    "given": "Leonardo"
+                },
+                {
+                    "family": "Aravena Aragón",
+                    "given": "Luis"
+                }
+            ],
+            "container-title": "Estudios pedagógicos (Valdivia)",
+            "id": "donosoromoINTERCULTURALIDADPOLITICASPUBLICAS2006",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2006
+                    ]
+                ]
+            },
+            "language": "en-US",
+            "title": "INTERCULTURALIDAD Y POLÍTICAS PÚBLICAS EN EDUCACIÓN: REFLEXIONES DESDE SANTIAGO DE CHILE",
+            "title-short": "INTERCULTURALIDAD Y POLÍTICAS PÚBLICAS EN EDUCACIÓN",
+            "type": "article-journal",
+            "volume": "32"
+        },
+        {
+            "DOI": "10.5027/psicoperspectivas-Vol14-Issue3-fulltext-617",
+            "ISSN": "0718-6924, 0717-7798",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        3,
+                        26
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Núñez Prieto",
+                    "given": "Iván"
+                }
+            ],
+            "container-title": "Psicoperspectivas. Individuo y Sociedad",
+            "id": "nunezprietoEducacionChilenaRepublica2015",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015,
+                        10
+                    ]
+                ]
+            },
+            "page": "5-16",
+            "title": "Educación chilena en la República: Promesas de universalismo y realidades de inequidad en su historia",
+            "title-short": "Educación chilena en la República",
+            "type": "article-journal",
+            "volume": "14"
+        },
+        {
+            "DOI": "10.4067/S0719-26812019000200081",
+            "ISSN": "0719-2681",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        3,
+                        25
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Quintriqueo",
+                    "given": "Segundo"
+                },
+                {
+                    "family": "Arias-Ortega",
+                    "given": "Katerin"
+                }
+            ],
+            "container-title": "Diálogo andino",
+            "id": "quintriqueoEDUCACIONINTERCULTURALARTICULADA2019",
+            "issue": "59",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        6
+                    ]
+                ]
+            },
+            "language": "en-US",
+            "page": "81-91",
+            "title": "EDUCACIÓN INTERCULTURAL ARTICULADA A LA EPISTEME INDÍGENA EN LATINOAMÉRICA. EL CASO MAPUCHE EN CHILE",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.5565/rev/educar.1204",
+            "ISSN": "2014-8801, 0211-819X",
+            "abstract": "El principal indicador para evaluar la equidad del sistema de educación superior en Chile ha sido la ampliación de la matrícula. Entre las medidas adoptadas para su consecución se encuentra el uso del Crédito con Aval del Estado (CAE) como herramienta para financiar los estudios universitarios. El objetivo de esta investigación ha sido analizar el impacto de dicha política, tanto en la configuración del mercado universitario actual como en la percepción de sus <<beneficiarios>>. A través de un enfoque metodológico mixto, que incluyó revisión documental y entrevistas individuales a estudiantes beneficiarios del CAE, se generaron tres dimensiones de análisis. Los resultados evidencian la existencia de interfaces complejas entre los resultados macroeconómicos y la experiencia de los estudiantes. En efecto, mientras una mirada a la objetividad del sistema demuestra el soporte neoliberal y el refuerzo que supone a la <<bancarización>> del financiamiento educativo, la perspectiva de los beneficiarios es que el CAE representaría una oportunidad única de acceso a la educación superior.",
+            "accessed": {
+                "date-parts": [
+                    [
+                        2024,
+                        3,
+                        26
+                    ]
+                ]
+            },
+            "author": [
+                {
+                    "family": "Rivera-Vargas",
+                    "given": "Pablo"
+                },
+                {
+                    "family": "Climent Sanjuan",
+                    "given": "Victor"
+                },
+                {
+                    "family": "Rivera Bilbao",
+                    "given": "René"
+                }
+            ],
+            "container-title": "Educar",
+            "id": "rivera-vargasAccesoEducacionSuperior2021",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021,
+                        7
+                    ]
+                ]
+            },
+            "page": "447-463",
+            "title": "Acceso a la educación superior en Chile desde la financiación privada: Entre la inequidad estructural y la oportunidad individual",
+            "title-short": "Acceso a la educación superior en Chile desde la financiación privada",
+            "type": "article-journal",
+            "volume": "57"
+        }
+    ],
     "project_biblios": []
 }

@@ -146,7 +146,7 @@ elsoc$educ <- factor(elsoc$educ,
 # 4.5.3 Edad
 # Recodificado
 elsoc <- elsoc %>% 
-  mutate(edad_groups = case_when(edad >=18 & edad<=25 ~ "Entre 18 y 25 años",
+  mutate(edad_groups = case_when(edad >=18 & edad<=25 ~ "Entre 16 y 25 años",
                                  edad >=26 & edad<=39 ~ "Entre 26 y 39 años",
                                  edad >=40 & edad<=65 ~ "Entre 40 y 65 años",
                                  edad >65 ~ "Más de 65 años"))
@@ -169,7 +169,6 @@ frq(elsoc$apoyo_mov_soc)
 # 4.6.1 Etiquetar variable
 elsoc$apoyo_mov_soc <- set_label(x = elsoc$apoyo_mov_soc,label = "Apoyo al movimiento estudiantil chileno")
 get_label(elsoc$apoyo_mov_soc)
-
 
 #### 5. Generar base de datos procesada para el análisis ####
 ## 5.1 Reformatear objeto (CASEN) a BBDD
