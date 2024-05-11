@@ -153,6 +153,8 @@ elsoc <- elsoc %>%
 
 table(elsoc$edad_groups)
 
+elsoc$edad_groups <- set_label(x = elsoc$edad_groups, label = "Edades")
+
 ## 4.6 Crear variable que sume las anteriores para identificar 
 elsoc$apoyo_mov_soc <- (elsoc$comp+elsoc$ident+elsoc$esperanza+elsoc$cambio_social+elsoc$valores)
 summary(elsoc$apoyo_mov_soc)
