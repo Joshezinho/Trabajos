@@ -162,7 +162,7 @@ summary(elsoc$apoyo_mov_soc)
 # Recodificar variable en poco apoyo, mediano apoyo y mucho apoyo
 elsoc$apoyo_mov_soc <- car::recode(elsoc$apoyo_mov_soc, "0=0; 1:7=1; 8:14=2; 15:20=3")
 elsoc$apoyo_mov_soc <- factor(elsoc$apoyo_mov_soc,
-                              labels = c("Nada de Apoyo", "Algo de apoyo", "Apoyo medio", "Mucho Apoyo"),
+                              labels = c("Nada de Apoyo", "Poco apoyo", "Ni poco ni mucho apoyo", "Mucho Apoyo"),
                               levels = c(0, 1, 2, 3))
 frq(elsoc$apoyo_mov_soc)
 

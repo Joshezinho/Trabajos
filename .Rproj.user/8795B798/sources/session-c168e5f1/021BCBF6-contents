@@ -58,9 +58,9 @@ names(elsoc)
 sjlabelled::get_label(elsoc)
 ```
 
-En este caso trabajaré con nueve variables que extrajé de la base de datos de ELSOC, siendo estas la edad que va desde los 18 hasta los 70 años, el sexo, el nivel educativo codificado en cuatro categorías, siendo estas, sin estudios, educación básica, media y superior, el resto de variables corresponde a un conjunto que representa el apoyo al movimiento estudiantil, donde estas fueron agrupadas para generar una sola variable que corresponde a la última denominada justamente como "Apoyo al movimiento estudiantil chileno".
+En este caso trabajaré con diez variables que extrajé de la base de datos de ELSOC, siendo estas la edad que va desde los 18 hasta los 70 años, asimismo, hay una variable que se llama "Edades" que son rangos etarios que facilitarán el análisis general del fenómeno a estudiar, el sexo, el nivel educativo codificado en cuatro categorías, siendo estas, sin estudios, educación básica, media y superior, el resto de variables corresponde a un conjunto que representa el apoyo al movimiento estudiantil, donde estas fueron agrupadas para generar una sola variable sumativa que corresponde a la última denominada justamente como "Apoyo al movimiento estudiantil chileno".
 
-Estas variables me ayudarán a entender el perfil de personas que apoyan mayormente al movimiento estudiantil.
+Estas variables me ayudarán a entender el perfil de personas que apoyan mayormente al movimiento estudiantil y como se distribuye en general la tendencia.
 
 ##### Obtener descriptivos
 
@@ -80,12 +80,12 @@ En esta acotada tabla podemos visualizar los casos que se encuentran en cada var
 summarytools::dfSummary(elsoc, plain.ascii = FALSE)
 ```
 
-En esta segunda tabla, podemos ver más o menos la distribución de cada variable. En este caso ya podemos comenzar a analizar esta un poco más en profundidad. En un primer momento podemos visualizar la edad promedio de las personas que respondieron la encuesta, siendo esta de 44 años, por otro lado la cantidad de personas hombres que prefieren el movimiento educacional chileno son casi la mitad de las mujeres que lo prefieren, en este caso es una cifra bastante curiosa, al ser un movimiento educacional, usualmente no hay una inclinación por algún sexo u otro pero en este caso si se presenta una tendencia más amplia. Por otro lado, el máximo nivel educativo es el de la educación media, y si a eso le sumamos los casos de los universitarios que de una forma u otra tuvieron que tener su educación media aprobada se ve una amplia mayoría. El resto de variables son bastante uniformes en cuanto al grado de acuerdo con las afirmaciones, de todas formas se esperaría que al ser el movimiento social elegido por ellas, al menos alguna de las variables pudiera presentar el máximo nivel de acuerdo como estadístico modal. Por último, la variable construida a nivel de análisis presenta una media de 14 puntos, lo que quiere decir que en general las personas apoyan bastante el movimiento estudiantil chileno, pero al parecer no demasiado.
+En esta segunda tabla, podemos ver más o menos la distribución de cada variable. En este caso ya podemos comenzar a analizar esta un poco más en profundidad. En un primer momento podemos visualizar la edad promedio de las personas que respondieron la encuesta, siendo esta de 44 años, por otro lado la cantidad de personas hombres que prefieren el movimiento educacional chileno son casi la mitad de las mujeres que lo prefieren, en este caso es una cifra bastante curiosa, al ser un movimiento educacional, usualmente no hay una inclinación por algún sexo u otro pero en este caso si se presenta una tendencia más amplia. Por otro lado, el máximo nivel educativo es el de la educación media, y si a eso le sumamos los casos de los universitarios que de una forma u otra tuvieron que tener su educación media aprobada se ve una amplia mayoría. El resto de variables son bastante uniformes en cuanto al grado de acuerdo con las afirmaciones, de todas formas se esperaría que al ser el movimiento social elegido por ellas, al menos alguna de las variables pudiera presentar el máximo nivel de acuerdo como estadístico modal. Por último, la variable construida a nivel de análisis presenta un estadístico modal correspondiente a "Mucho Apoyo", lo que es esperable al ser el movimiento social que las personas eligieron como el que más apoyan.
 
-Para facilitar el análisis, sólo tomaré en cuenta la variable sumativa construida que representa el apoyo al movimiento estudiantil. En este caso como primer acercamiento me interesaria ver una tabla descriptiva respecto a la edad.
+Para facilitar el análisis, sólo tomaré en cuenta la variable sumativa construida que representa el apoyo al movimiento estudiantil. En este caso como primer acercamiento me interesaria ver una tabla descriptiva respecto al sexo.
 
 ```{r}
-#| label: tab-4
+#| label: tab-3
 
 #| fig-cap: “Plots”
 sjt.xtab(elsoc$apoyo_mov_soc, elsoc$sexo,
@@ -105,7 +105,7 @@ graph1
 ```
 
 ```{r}
-#| label: tab-5
+#| label: tab-4
 
 #| fig-cap: “Plots”
 sjt.xtab(elsoc$apoyo_mov_soc, elsoc$educ,
@@ -115,7 +115,6 @@ sjt.xtab(elsoc$apoyo_mov_soc, elsoc$educ,
 ```
 
 ```{r}
-# Crear el gráfico usando ggplot2
 graph2 <- elsoc %>%
   na.omit() %>% 
   ggplot(aes(x = apoyo_mov_soc)) + 
@@ -142,17 +141,19 @@ graph3
 ```
 
 ```{r}
-elsoc %>% 
+graph4 <- elsoc %>% 
   na.omit()%>%
   ggplot(aes(x = apoyo_mov_soc)) + 
   geom_bar() +
   xlab("Apoyo al movimiento estudiantil chileno") +
   ylab("Cantidad")+
   facet_wrap(~sexo)
+
+graph4
 ```
 
 ```{r}
-#| label: tab-6
+#| label: tab-5
 
 #| fig-cap: “Plots”
 sjt.xtab(elsoc$apoyo_mov_soc, elsoc$edad_groups,
@@ -162,7 +163,7 @@ sjt.xtab(elsoc$apoyo_mov_soc, elsoc$edad_groups,
 ```
 
 ```{r}
-graph4 <- elsoc %>% 
+graph5 <- elsoc %>% 
   na.omit() %>% 
   ggplot(aes(x = apoyo_mov_soc, fill = edad_groups)) + 
   geom_bar() +
@@ -171,5 +172,5 @@ graph4 <- elsoc %>%
   labs(fill="Sexo")+
   scale_fill_discrete(labels = c('Entre 18 y 25 años','Entre 26 y 39 años', "Entre 40 y 65 años", "Más de 65 años"))
 
-graph4
+graph5
 ```

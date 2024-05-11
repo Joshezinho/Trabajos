@@ -1,4 +1,3 @@
-"0","# Crear el gráfico usando ggplot2"
 "0","graph2 <- elsoc %>%"
 "0","  na.omit() %>% "
 "0","  ggplot(aes(x = apoyo_mov_soc)) + "

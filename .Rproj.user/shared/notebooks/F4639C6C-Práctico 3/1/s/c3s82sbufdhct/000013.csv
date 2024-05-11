@@ -1,4 +1,4 @@
-"0","graph4 <- elsoc %>% "
+"0","graph5 <- elsoc %>% "
 "0","  na.omit() %>% "
 "0","  ggplot(aes(x = apoyo_mov_soc, fill = edad_groups)) + "
 "0","  geom_bar() +"
@@ -7,4 +7,4 @@
 "0","  labs(fill=""Sexo"")+"
 "0","  scale_fill_discrete(labels = c('Entre 18 y 25 años','Entre 26 y 39 años', ""Entre 40 y 65 años"", ""Más de 65 años""))"
 "0",""
-"0","graph4"
+"0","graph5"

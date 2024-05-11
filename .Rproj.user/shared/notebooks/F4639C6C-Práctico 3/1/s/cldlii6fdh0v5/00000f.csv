@@ -1,7 +1,7 @@
 "0","#| label: tab-4"
 "0",""
 "0","#| fig-cap: “Plots”"
-"0","sjt.xtab(elsoc$apoyo_mov_soc, elsoc$sexo,"
+"0","sjt.xtab(elsoc$apoyo_mov_soc, elsoc$educ,"
 "0","        show.col.prc=TRUE,"
 "0","        show.summary=FALSE,"
 "0","        encoding = ""UTF-8"")"

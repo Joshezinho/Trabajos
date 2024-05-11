@@ -53,7 +53,7 @@ No   Variable         Label                                     Stats / Values  
                                                                 IQR (CV) : 0 (0.3)         3 : 1080 (65.9%)\    IIIIIIIIIIIII \                         
                                                                                            4 :  183 (11.2%)     II                                      
 
-9    edad_groups\     Edades                                    1\. Entre 16 y 25 años\    267 (13.2%)\         II \                2019\      0\       
+9    edad_groups\     Edades                                    1\. Entre 18 y 25 años\    267 (13.2%)\         II \                2019\      0\       
      [character]                                                2\. Entre 26 y 39 años\    599 (29.7%)\         IIIII \             (100.0%)   (0.0%)   
                                                                 3\. Entre 40 y 65 años\    978 (48.4%)\         IIIIIIIII \                             
                                                                 4\. Más de 65 años         175 ( 8.7%)          I                                       

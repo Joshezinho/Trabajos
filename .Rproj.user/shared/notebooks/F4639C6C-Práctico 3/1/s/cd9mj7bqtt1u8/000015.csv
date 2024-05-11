@@ -1,5 +1,0 @@
-"0","#| label: tab-1  "
-"0","#| #| fig-cap: “Plots” "
-"0","sjmisc::descr(elsoc,"
-"0","              show = c(""label"",""range"", ""mean"", ""sd"", ""NA.prc"", ""n""))%>%"
-"0","  kable(.,""markdown"")"
