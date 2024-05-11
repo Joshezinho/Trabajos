@@ -143,9 +143,26 @@ elsoc$educ <- factor(elsoc$educ,
                      labels = c("Sin Estudios", "Básica", "Media", "Superior"),
                      levels = c(0, 1, 2, 3))
 
+# 4.5.3 Edad
+# Recodificado
+elsoc <- elsoc %>% 
+  mutate(edad_groups = case_when(edad >=18 & edad<=25 ~ "Entre 16 y 25 años",
+                                 edad >=26 & edad<=39 ~ "Entre 26 y 39 años",
+                                 edad >=40 & edad<=65 ~ "Entre 40 y 65 años",
+                                 edad >65 ~ "Más de 65 años"))
+
+table(elsoc$edad_groups)
+
 ## 4.6 Crear variable que sume las anteriores para identificar 
 elsoc$apoyo_mov_soc <- (elsoc$comp+elsoc$ident+elsoc$esperanza+elsoc$cambio_social+elsoc$valores)
 summary(elsoc$apoyo_mov_soc)
+
+# Recodificar variable en poco apoyo, mediano apoyo y mucho apoyo
+elsoc$apoyo_mov_soc <- car::recode(elsoc$apoyo_mov_soc, "0=0; 1:7=1; 8:14=2; 15:20=3")
+elsoc$apoyo_mov_soc <- factor(elsoc$apoyo_mov_soc,
+                              labels = c("Nada de Apoyo", "Algo de apoyo", "Apoyo medio", "Mucho Apoyo"),
+                              levels = c(0, 1, 2, 3))
+frq(elsoc$apoyo_mov_soc)
 
 # 4.6.1 Etiquetar variable
 elsoc$apoyo_mov_soc <- set_label(x = elsoc$apoyo_mov_soc,label = "Apoyo al movimiento estudiantil chileno")

@@ -88,17 +88,70 @@ Para facilitar el análisis, sólo tomaré en cuenta la variable sumativa constr
 #| label: tab-4
 
 #| fig-cap: “Plots”
-sjt.xtab(elsoc$edad, elsoc$apoyo_mov_soc,
+sjt.xtab(elsoc$apoyo_mov_soc, elsoc$sexo,
         show.col.prc=TRUE,
         show.summary=FALSE,
         encoding = "UTF-8")
 ```
 
 ```{r}
-elsoc %>%
-  ggplot(aes(x = edad, y = apoyo_mov_soc, label = apoyo_mov_soc)) +
-  geom_point() +
-  geom_text(vjust = -0.5) +
-  labs(x = "GDP", y = "Promedio") +
-  theme_bw()
+{r}
+graph1 <- ggplot(elsoc, aes(x = as.numeric(edad))) +
+  geom_histogram(binwidth=0.6, colour="black", fill="yellow") +
+  theme_bw() +
+  xlab("Edad") +
+  ylab("Cantidad")
+
+graph1 
+```
+
+```{r}
+#| label: tab-5
+
+#| fig-cap: “Plots”
+sjt.xtab(elsoc$apoyo_mov_soc, elsoc$educ,
+        show.col.prc=TRUE,
+        show.summary=FALSE,
+        encoding = "UTF-8")
+```
+
+```{r}
+# Crear el gráfico usando ggplot2
+graph2 <- elsoc %>%
+  na.omit() %>% 
+  ggplot(aes(x = apoyo_mov_soc)) + 
+  geom_bar(fill = "coral")+
+  labs(title = "Apoyo al movimiento estudiantil chileno",
+       x = "Apoyo al movimiento estudiantil",
+       y = "Frecuencia") +
+  theme_bw() 
+
+graph2
+```
+
+```{r}
+graph3 <- elsoc %>% 
+  na.omit() %>% 
+  ggplot(aes(x = apoyo_mov_soc, fill = sexo)) + 
+  geom_bar() +
+  xlab("Apoyo al movimiento estudiantil chileno") +
+  ylab("Cantidad") + 
+  labs(fill="Sexo")+
+  scale_fill_discrete(labels = c('Hombre','Mujer'))
+
+graph3
+```
+
+```{r}
+elsoc %>% 
+  na.omit()%>%
+  ggplot(aes(x = apoyo_mov_soc)) + 
+  geom_bar() +
+  xlab("Apoyo al movimiento estudiantil chileno") +
+  ylab("Cantidad")+
+  facet_wrap(~sexo)
+```
+
+```{r}
+
 ```
