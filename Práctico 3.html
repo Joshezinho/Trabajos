@@ -731,12 +731,106 @@ apoyo</td>
 </div>
 </div>
 </section>
+<section id="escala" class="level4">
+<h4 class="anchored" data-anchor-id="escala">Escala</h4>
+<section id="cargar-base-de-datos-que-contiene-la-escala" class="level5">
+<h5 class="anchored" data-anchor-id="cargar-base-de-datos-que-contiene-la-escala">Cargar base de datos que contiene la escala</h5>
+<p>Para efectos de la tercera entrega de la investigación es que generé una base de datos que toma en cuenta las variables empleadas anteriormente pero agrupadas sólo las necesarias para este fin.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/Joshezinho/Trabajos/raw/main/input/escala_elsoc.rdata"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="correlación" class="level5">
+<h5 class="anchored" data-anchor-id="correlación">Correlación</h5>
+<p>Como primer momento me interesa medir la correlación de las variables seleccionadas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(escala_elsoc, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      comp     ident esperanza cambio_social   valores
+comp             1.0000000 0.6168304 0.3922360     0.2549766 0.3216901
+ident            0.6168304 1.0000000 0.4085470     0.2944699 0.3567400
+esperanza        0.3922360 0.4085470 1.0000000     0.5221917 0.4335620
+cambio_social    0.2549766 0.2944699 0.5221917     1.0000000 0.3820675
+valores          0.3216901 0.3567400 0.4335620     0.3820675 1.0000000
+apoyo_mov_social 0.7211614 0.7451330 0.7545266     0.6802310 0.6974030
+                 apoyo_mov_social
+comp                    0.7211614
+ident                   0.7451330
+esperanza               0.7545266
+cambio_social           0.6802310
+valores                 0.6974030
+apoyo_mov_social        1.0000000</code></pre>
+</div>
+</div>
+<p>Se puede observar que todas las correlaciones son positivas. Si bien no tienen un alto puntaje, son positivas y tienen un mínimo de correlación entre sí.</p>
+</section>
+<section id="estimar-consistencia-interna-con-alpha-de-cronbach" class="level5">
+<h5 class="anchored" data-anchor-id="estimar-consistencia-interna-con-alpha-de-cronbach">Estimar consistencia interna con Alpha de Cronbach</h5>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(escala_elsoc) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Reliability analysis   
+Call: psych::alpha(x = escala_elsoc)
+
+  raw_alpha std.alpha G6(smc) average_r S/N   ase mean   sd median_r
+      0.78      0.86       1      0.51 6.1 0.002  4.8 0.91     0.43
+
+    95% confidence boundaries 
+         lower alpha upper
+Feldt     0.77  0.78  0.80
+Duhachek  0.78  0.78  0.79
+
+ Reliability if an item is dropped:
+                 raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
+comp                  0.75      0.85    0.92      0.53 5.6   0.0026 0.031  0.48
+ident                 0.75      0.84    0.93      0.52 5.3   0.0026 0.034  0.48
+esperanza             0.75      0.84    0.93      0.51 5.1   0.0026 0.040  0.50
+cambio_social         0.76      0.86    0.92      0.54 6.0   0.0025 0.032  0.52
+valores               0.75      0.85    0.92      0.54 5.8   0.0026 0.036  0.57
+apoyo_mov_social      0.77      0.77    0.75      0.40 3.3   0.0083 0.012  0.39
+
+ Item statistics 
+                    n raw.r std.r r.cor r.drop mean   sd
+comp             1651  0.71  0.72  0.72   0.64  2.9 0.75
+ident            1652  0.73  0.74  0.74   0.67  2.9 0.74
+esperanza        1651  0.74  0.76  0.76   0.69  3.0 0.69
+cambio_social    1650  0.67  0.68  0.68   0.59  3.0 0.75
+valores          1639  0.69  0.69  0.69   0.61  2.8 0.76
+apoyo_mov_social 1636  1.00  1.00  1.00   1.00 14.5 2.65
+
+Non missing response frequency for each item
+                 0    1    2    3    4 miss
+comp          0.01 0.05 0.11 0.69 0.14 0.18
+ident         0.01 0.06 0.10 0.70 0.13 0.18
+esperanza     0.01 0.04 0.08 0.70 0.17 0.18
+cambio_social 0.01 0.05 0.09 0.65 0.20 0.18
+valores       0.01 0.06 0.16 0.66 0.11 0.19</code></pre>
+</div>
+</div>
+<p>En este caso podemos visualizar que su consistencia interna escala a un 85% o a 0.85 puntos, y al visualizar el nuevo valor al descartar alguna de las variables este sólo disminuye por lo que las variables seleccionadas son las correctas para esta investigación.</p>
+</section>
+<section id="escala-general" class="level5">
+<h5 class="anchored" data-anchor-id="escala-general">Escala general</h5>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>escala_elsoc <span class="ot">&lt;-</span> escala_elsoc <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">apoyo_mov_social =</span> <span class="fu">sum</span>(comp, ident, esperanza, cambio_social, valores))</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(escala_elsoc<span class="sc">$</span>apoyo_mov_social)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   0.00   13.00   15.00   14.51   15.00   20.00     383 </code></pre>
+</div>
+</div>
+<p>En este caso, la escala que vemos construida es la misma que la variable sumativa que construimos en un principio, los valores representados son los mismos, incluyendo la media.</p>
+</section>
 <section id="conclusión" class="level5">
 <h5 class="anchored" data-anchor-id="conclusión">Conclusión</h5>
 <p>En líneas generales, lo que se visualiza con las tablas y gráficos es que la diferencia entre personas que apoyan el movimiento estudiantil no es mucha, la mayoría de las personas se alojan en mucho apoyo y un apoyo intermedio, lo que refleja una alta identificación con el movimiento estudiantil chileno en general.</p>
 <p>Ahora bien, lo que se puede interpretar de esto es que las personas que se identifican con un movimiento social, por lo menos con el estudiantil, lo hacen de una forma que su apoyo es el suficiente para posicionarse como personas comprometidas, que sus valores se ven reflejados en este y por ende, su identificación con este movimiento es sustancial, independiente de su sexo, de su edad y de su nivel educativo.</p>
 <p>Esta investigación presentaba como hipótesis que en general el sexo no influía mucho en el apoyo lo que se confirma con la tabla respecto a la proporción, en cuanto al nivel educativo, personas de todos los niveles son simpatizantes del movimiento y en cuanto a la edad es lo más sorpresivo, ya que el movimiento recoge personas desde los 18 a los 84.</p>
 
+</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">

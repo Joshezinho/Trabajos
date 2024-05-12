@@ -191,6 +191,45 @@ graph5 <- elsoc %>%
 graph5
 ```
 
+#### Escala
+
+##### Cargar base de datos que contiene la escala
+
+Para efectos de la tercera entrega de la investigación es que generé una base de datos que toma en cuenta las variables empleadas anteriormente pero agrupadas sólo las necesarias para este fin.
+
+```{r}
+load(url("https://github.com/Joshezinho/Trabajos/raw/main/input/escala_elsoc.rdata"))
+```
+
+##### Correlación
+
+Como primer momento me interesa medir la correlación de las variables seleccionadas.
+
+```{r}
+cor(escala_elsoc, use = "pairwise.complete.obs")
+```
+
+Se puede observar que todas las correlaciones son positivas. Si bien no tienen un alto puntaje, son positivas y tienen un mínimo de correlación entre sí.
+
+##### Estimar consistencia interna con Alpha de Cronbach
+
+```{r}
+psych::alpha(escala_elsoc) 
+```
+
+En este caso podemos visualizar que su consistencia interna escala a un 85% o a 0.85 puntos, y al visualizar el nuevo valor al descartar alguna de las variables este sólo disminuye por lo que las variables seleccionadas son las correctas para esta investigación.
+
+##### Escala general
+
+```{r}
+escala_elsoc <- escala_elsoc %>% 
+  rowwise() %>% 
+  mutate(apoyo_mov_social = sum(comp, ident, esperanza, cambio_social, valores))
+summary(escala_elsoc$apoyo_mov_social)
+```
+
+En este caso, la escala que vemos construida es la misma que la variable sumativa que construimos en un principio, los valores representados son los mismos, incluyendo la media.
+
 ##### Conclusión
 
 En líneas generales, lo que se visualiza con las tablas y gráficos es que la diferencia entre personas que apoyan el movimiento estudiantil no es mucha, la mayoría de las personas se alojan en mucho apoyo y un apoyo intermedio, lo que refleja una alta identificación con el movimiento estudiantil chileno en general.

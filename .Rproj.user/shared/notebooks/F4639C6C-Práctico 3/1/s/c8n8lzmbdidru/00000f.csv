@@ -1,0 +1,5 @@
+"0","load(""https://github.com/Joshezinho/Trabajos/raw/main/input/escala_elsoc.rdata"")
+"
+"2","Warning: cannot open compressed file 'https://github.com/Joshezinho/Trabajos/raw/main/input/escala_elsoc.rdata', probable reason 'Invalid argument'"
+"2","Error in readChar(con, 5L, useBytes = TRUE) : cannot open the connection
+"
