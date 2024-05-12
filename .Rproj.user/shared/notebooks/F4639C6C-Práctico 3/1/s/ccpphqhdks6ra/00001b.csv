@@ -1,0 +1,66 @@
+"0","#| label: tab-2 "
+"0","#| fig-cap: “Plots”"
+"0","summarytools::dfSummary(elsoc, plain.ascii = FALSE)"
+"1","### Data Frame Summary  
+#### elsoc  
+**Dimensions:** 2019 x 10  
+**Duplicates:** 483  
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+No   Variable         Label                                     Stats / Values                Freqs (% of Valid)   Graph               Valid      Missing  
+---- ---------------- ----------------------------------------- ----------------------------- -------------------- ------------------- ---------- ---------
+1    edad\            Edad                                      Mean (sd) : 43.5 (14.8)\      65 distinct values   \ \ : \ \ : :\      2019\      0\       
+     [numeric]                                                  min < med < max:\                                  . : : : : :\        (100.0%)   (0.0%)   
+                                                                18 < 43 < 84\                                      : : : : : : :\                          
+                                                                IQR (CV) : 24 (0.3)                                : : : : : : : :\                        
+                                                                                                                   : : : : : : : : :                       
+
+2    sexo\            Sexo                                      1\. Hombre\                   736 (36.5%)\         IIIIIII \           2019\      0\       
+     [factor]                                                   2\. Mujer                     1283 (63.5%)         IIIIIIIIIIII        (100.0%)   (0.0%)   
+
+3    educ\            Nivel educativo                           1\. Sin Estudios\             233 (11.5%)\         II \                2019\      0\       
+     [factor]                                                   2\. Básica\                   488 (24.2%)\         IIII \              (100.0%)   (0.0%)   
+                                                                3\. Media\                    885 (43.8%)\         IIIIIIII \                              
+                                                                4\. Superior                  413 (20.5%)          IIII                                    
+
+4    comp\            Sentimiento de compromiso con el          Mean (sd) : 2.9 (0.8)\        0 :   23 ( 1.4%)\    \                   1651\      368\     
+     [numeric]        movimiento                                min < med < max:\             1 :   87 ( 5.3%)\    I \                 (81.8%)    (18.2%)  
+                                                                0 < 3 < 4\                    2 :  178 (10.8%)\    II \                                    
+                                                                IQR (CV) : 0 (0.3)            3 : 1137 (68.9%)\    IIIIIIIIIIIII \                         
+                                                                                              4 :  226 (13.7%)     II                                      
+
+5    ident\           Identificación con el movimiento          Mean (sd) : 2.9 (0.7)\        0 :   18 ( 1.1%)\    \                   1652\      367\     
+     [numeric]                                                  min < med < max:\             1 :   99 ( 6.0%)\    I \                 (81.8%)    (18.2%)  
+                                                                0 < 3 < 4\                    2 :  171 (10.4%)\    II \                                    
+                                                                IQR (CV) : 0 (0.3)            3 : 1156 (70.0%)\    IIIIIIIIIIIII \                         
+                                                                                              4 :  208 (12.6%)     II                                      
+
+6    esperanza\       El futuro del movimiento genera           Mean (sd) : 3 (0.7)\          0 :   11 ( 0.7%)\    \                   1651\      368\     
+     [numeric]        esperanza                                 min < med < max:\             1 :   67 ( 4.1%)\    \                   (81.8%)    (18.2%)  
+                                                                0 < 3 < 4\                    2 :  138 ( 8.4%)\    I \                                     
+                                                                IQR (CV) : 0 (0.2)            3 : 1155 (70.0%)\    IIIIIIIIIIIII \                         
+                                                                                              4 :  280 (17.0%)     III                                     
+
+7    cambio_social\   Las acciones del movimiento pueden        Mean (sd) : 3 (0.7)\          0 :   12 ( 0.7%)\    \                   1650\      369\     
+     [numeric]        generar un cambio social                  min < med < max:\             1 :   85 ( 5.2%)\    I \                 (81.7%)    (18.3%)  
+                                                                0 < 3 < 4\                    2 :  155 ( 9.4%)\    I \                                     
+                                                                IQR (CV) : 0 (0.3)            3 : 1076 (65.2%)\    IIIIIIIIIIIII \                         
+                                                                                              4 :  322 (19.5%)     III                                     
+
+8    valores\         El propósito del movimiento está          Mean (sd) : 2.8 (0.8)\        0 :   18 ( 1.1%)\    \                   1639\      380\     
+     [numeric]        alineado con los valores de los           min < med < max:\             1 :  103 ( 6.3%)\    I \                 (81.2%)    (18.8%)  
+                      participantes                             0 < 3 < 4\                    2 :  255 (15.6%)\    III \                                   
+                                                                IQR (CV) : 0 (0.3)            3 : 1080 (65.9%)\    IIIIIIIIIIIII \                         
+                                                                                              4 :  183 (11.2%)     II                                      
+
+9    edad_groups\     Edades                                    1\. Entre 18 y 25 años\       267 (13.2%)\         II \                2019\      0\       
+     [character]                                                2\. Entre 26 y 39 años\       599 (29.7%)\         IIIII \             (100.0%)   (0.0%)   
+                                                                3\. Entre 40 y 65 años\       978 (48.4%)\         IIIIIIIII \                             
+                                                                4\. Más de 65 años            175 ( 8.7%)          I                                       
+
+10   apoyo_mov_soc\   Apoyo al movimiento estudiantil chileno   1\. Nada de Apoyo\            3 ( 0.2%)\           \                   1636\      383\     
+     [factor]                                                   2\. Poco apoyo\               23 ( 1.4%)\          \                   (81.0%)    (19.0%)  
+                                                                3\. Ni poco ni mucho apoyo\   609 (37.2%)\         IIIIIII \                               
+                                                                4\. Mucho Apoyo               1001 (61.2%)         IIIIIIIIIIII                            
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+"

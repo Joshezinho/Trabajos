@@ -1,4 +1,4 @@
-"0","graph4 <- elsoc %>% "
+"0","graph2 <- elsoc %>% "
 "0","  na.omit()%>%"
 "0","  ggplot(aes(x = apoyo_mov_soc)) + "
 "0","  geom_bar() +"
@@ -6,4 +6,4 @@
 "0","  ylab(""Cantidad"")+"
 "0","  facet_wrap(~sexo)"
 "0",""
-"0","graph4"
+"0","graph2"

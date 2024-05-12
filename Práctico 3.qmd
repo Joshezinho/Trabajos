@@ -94,15 +94,48 @@ sjt.xtab(elsoc$apoyo_mov_soc, elsoc$sexo,
         encoding = "UTF-8")
 ```
 
+En este caso se visibiliza nuevamente lo descrito anteriormente respecto al apoyo por parte de las personas al movimiento, pero esta vez desagregado por sexo. En proporción ambos sexos apoyan de manera similar el movimiento, pero se puede evidenciar una tendencia de mayor apoyo por parte de las mujeres, tanto en proporción como en cuanto a frecuencia absoluta.
+
 ```{r}
-graph1 <- ggplot(elsoc, aes(x = as.numeric(edad))) +
+graph1 <- elsoc %>% 
+  na.omit() %>% 
+  ggplot(aes(x = apoyo_mov_soc, fill = sexo)) + 
+  geom_bar() +
+  xlab("Apoyo al movimiento estudiantil chileno") +
+  ylab("Cantidad") + 
+  labs(fill="Sexo")+
+  scale_fill_discrete(labels = c('Hombre','Mujer'))
+
+graph1
+```
+
+En este gráfico se visualiza la información anteriormente descrita respecto al sexo y el apoyo de las personas respecto al movimiento estudiantil. Y en el caso de querer visualizarlo de manera más desagregada, presento este gráfico que representa la misma información pero desde los dos sexos por separado.
+
+```{r}
+graph2 <- elsoc %>% 
+  na.omit()%>%
+  ggplot(aes(x = apoyo_mov_soc)) + 
+  geom_bar() +
+  xlab("Apoyo al movimiento estudiantil chileno") +
+  ylab("Cantidad")+
+  facet_wrap(~sexo)
+
+graph2
+```
+
+Ahora bien, en el siguiente gráfico me interesa visualizar el apoyo de las personas referente a su edad.
+
+```{r}
+graph3 <- ggplot(elsoc, aes(x = as.numeric(edad))) +
   geom_histogram(binwidth=0.9, colour="black", fill="purple") +
   theme_bw() +
   xlab("Edad") +
   ylab("Cantidad")
 
-graph1 
+graph3
 ```
+
+En este caso, las edades donde se concentra la mayor cantidad de gente está entre los 20 y los 55 aproximadamente, lo que habla de que personas de un rango amplio de edades apoya el movimiento estudiantil chileno. Además de ser interesante que gente de todas las edades se interese por este movimiento en particular, es curioso que personas mayores también lo seleccionan como su movimiento social de interés al ser el movimiento estudiantil catalogado como disruptivo y en consecuencia, bastante "violento", con esto me refiero a que siempre el movimiento estudiantil ha estado vinculado con actos violentos de protesta, como incendios de paraderos, agresiones a fuerzas policiales, atentado contra el inmueble público, entre otras características que se le suelen otorgar a este.
 
 ```{r}
 #| label: tab-4
@@ -112,10 +145,14 @@ sjt.xtab(elsoc$apoyo_mov_soc, elsoc$educ,
         show.col.prc=TRUE,
         show.summary=FALSE,
         encoding = "UTF-8")
+
+
 ```
 
+En general, si cruzamos la variable de apoyo con el nivel educativo, no se ve una diferencia muy grande entre un nivel y otro, salvo por las personas que no cuentan con estudios formales, en donde su proporción de mucho apoyo baja con respecto al resto de categorías, aún así, se mantiene la tendencia de que todos los niveles educativos cuentan con mucho apoyo a este movimiento.
+
 ```{r}
-graph2 <- elsoc %>%
+graph4 <- elsoc %>%
   na.omit() %>% 
   ggplot(aes(x = apoyo_mov_soc)) + 
   geom_bar(fill = "coral")+
@@ -124,33 +161,10 @@ graph2 <- elsoc %>%
        y = "Frecuencia") +
   theme_bw() 
 
-graph2
-```
-
-```{r}
-graph3 <- elsoc %>% 
-  na.omit() %>% 
-  ggplot(aes(x = apoyo_mov_soc, fill = sexo)) + 
-  geom_bar() +
-  xlab("Apoyo al movimiento estudiantil chileno") +
-  ylab("Cantidad") + 
-  labs(fill="Sexo")+
-  scale_fill_discrete(labels = c('Hombre','Mujer'))
-
-graph3
-```
-
-```{r}
-graph4 <- elsoc %>% 
-  na.omit()%>%
-  ggplot(aes(x = apoyo_mov_soc)) + 
-  geom_bar() +
-  xlab("Apoyo al movimiento estudiantil chileno") +
-  ylab("Cantidad")+
-  facet_wrap(~sexo)
-
 graph4
 ```
+
+En este gráfico se confirma la tendencia que hemos estado revisando con el resto de variables, donde se visualiza una clara postura de las personas frente al movimiento estudiantil.
 
 ```{r}
 #| label: tab-5
@@ -161,6 +175,8 @@ sjt.xtab(elsoc$apoyo_mov_soc, elsoc$edad_groups,
         show.summary=FALSE,
         encoding = "UTF-8")
 ```
+
+En este caso visualizamos otra forma de ver la edad respecto al apoyo, donde las edades se separan en cuatro rangos etarios. Donde la mayor cantidad de personas se posiciona entre 40 y 65 años como adelanté anteriormente. Esto podemos visualizarlos en el siguiente gráfico.
 
 ```{r}
 graph5 <- elsoc %>% 
@@ -174,3 +190,11 @@ graph5 <- elsoc %>%
 
 graph5
 ```
+
+##### Conclusión
+
+En líneas generales, lo que se visualiza con las tablas y gráficos es que la diferencia entre personas que apoyan el movimiento estudiantil no es mucha, la mayoría de las personas se alojan en mucho apoyo y un apoyo intermedio, lo que refleja una alta identificación con el movimiento estudiantil chileno en general.
+
+Ahora bien, lo que se puede interpretar de esto es que las personas que se identifican con un movimiento social, por lo menos con el estudiantil, lo hacen de una forma que su apoyo es el suficiente para posicionarse como personas comprometidas, que sus valores se ven reflejados en este y por ende, su identificación con este movimiento es sustancial, independiente de su sexo, de su edad y de su nivel educativo.
+
+Esta investigación presentaba como hipótesis que en general el sexo no influía mucho en el apoyo lo que se confirma con la tabla respecto a la proporción, en cuanto al nivel educativo, personas de todos los niveles son simpatizantes del movimiento y en cuanto a la edad es lo más sorpresivo, ya que el movimiento recoge personas desde los 18 a los 84.

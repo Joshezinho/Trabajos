@@ -1,4 +1,4 @@
-"0","graph3 <- elsoc %>% "
+"0","graph1 <- elsoc %>% "
 "0","  na.omit() %>% "
 "0","  ggplot(aes(x = apoyo_mov_soc, fill = sexo)) + "
 "0","  geom_bar() +"
@@ -7,4 +7,4 @@
 "0","  labs(fill=""Sexo"")+"
 "0","  scale_fill_discrete(labels = c('Hombre','Mujer'))"
 "0",""
-"0","graph3"
+"0","graph1"

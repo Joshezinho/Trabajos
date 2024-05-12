@@ -170,10 +170,32 @@ frq(elsoc$apoyo_mov_soc)
 elsoc$apoyo_mov_soc <- set_label(x = elsoc$apoyo_mov_soc,label = "Apoyo al movimiento estudiantil chileno")
 get_label(elsoc$apoyo_mov_soc)
 
+#### 5. Generar escala ####
+# 5.1 Cargar base preparada 
+load(url("https://github.com/Joshezinho/Trabajos/raw/main/input/elsoc.rdata"))
+
+# 5.2 Generar escala
+escala_elsoc <- elsoc %>% select(comp, ident, esperanza, cambio_social, valores)
+
+head(escala_elsoc)
+
+# 5.3 Estimar correlación
+cor(escala_elsoc, use = "pairwise.complete.obs") #Se puede observar que todas las correlaciones son positivas. Si bien no tienen un alto puntaje, son positivas y tienen un mínimo de correlación entre sí. 
+
+#  5.4 Estimar consistencia interna
+psych::alpha(escala_elsoc) 
+
+# 5.5 
+escala_elsoc <- escala_elsoc %>% 
+  rowwise() %>% 
+  mutate(apoyo_mov_social = sum(comp, ident, esperanza, cambio_social, valores))
+summary(escala_elsoc$apoyo_mov_social)
 
 #### 5. Generar base de datos procesada para el análisis ####
-## 5.1 Reformatear objeto (CASEN) a BBDD
+## 5.1 Reformatear objeto (elsoc y escala_elsoc) a BBDD
 elsoc <-as.data.frame(elsoc)
+escala_elsoc <- as.data.frame(escala_elsoc)
 
 ## 5.2 Guardar base de datos en una ruta particular
 save(elsoc, file ="input/elsoc.rdata")
+save(escala_elsoc, file = "input/escala_elsoc.rdata")
