@@ -1,0 +1,122 @@
+### Práctico 8       ###
+### Joshe Norambuena ###
+########################
+
+#### 1. Cargar Librerías ####
+pacman::p_load(dplyr, car, sjmisc, sjPlot, sjlabelled, stargazer, kableExtra, corrplot, texreg, ggplot2, ggpubr)
+
+#### 2. Cargar basde de datos ####
+load(url("https://github.com/Kevin-carrasco/R-data-analisis/raw/main/practicos/files/elsoc2016_proc.RData"))
+
+#### 3. Análisis descriptivo ####
+sjmisc::descr(proc_data,
+              show = c("label","range", "mean", "sd", "NA.prc", "n"))%>% # Selecciona estadísticos
+  kable(.,"markdown") # Esto es para que se vea bien en quarto
+
+#### 4. Asociación de variables ####
+proc_data <- proc_data %>% select(cohesion_barrial, edad=m0_edad, educacion=m01, sexo=m0_sexo)
+
+## 4.1 Correlaciones
+M <- cor(proc_data, use = "complete.obs") # Usar solo casos con observaciones completas
+diag(M) = NA # Elimina la diagonal (correlaciones absolutas de cada variable consigmo misma)
+rownames(M) <- c("A. Cohesión barrial",
+                 "B. Edad",
+                 "C. Educación",
+                 "D. Sexo")
+colnames(M) <-c("(A)", "(B)","(C)", "(D)")
+
+corrplot::corrplot(M,
+                   method = "color", # Cambia los círculos por color completo de cada cuadrante
+                   addCoef.col = "#000390", # Color de los coeficientes
+                   type = "upper", # Deja solo las correlaciones de arriba
+                   tl.col = "black", # COlor letras, rojo por defecto
+                   na.label = "-")
+
+#### 5. Residuos ####
+#Grafico x1 = ACT
+graph1 <- ggplot(proc_data, aes(x = edad, y = cohesion_barrial)) +
+  geom_point(size = 1) +  # Puntos
+  geom_smooth(method = "lm", se = FALSE) +  # Recta de regresión
+  labs(x = "Edad", y = "Cohesión Barrial")  # Etiquetas de ejes
+
+# Gráfico 2
+graph2 <- ggplot(proc_data, aes(x = educacion, y = cohesion_barrial)) +
+  geom_point(size = 1) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Educación", y = "Cohesión Barrial")
+ggarrange(graph1, graph2, nrow = 1) # Unir graficos
+
+#### 6. Regresiones ####
+proc_data$educacion <- car::recode(proc_data$educacion, "c(1,2,3)=1; c(4,5)=2; c(6,7,8,9,10)=3")
+
+proc_data$educacion <- set_labels(proc_data$educacion,
+                                  labels=c( "Educacion básica"=1,
+                                            "Educación media"=2,
+                                            "Educación superior"=3))
+
+frq(proc_data$educacion)
+
+## 6.1 Recodificar a variables categóricas
+proc_data$educacion <- as_factor(proc_data$educacion)
+proc_data$sexo <- as_factor(proc_data$sexo)
+
+proc_data <- na.omit(proc_data)
+
+reg1 <- lm(cohesion_barrial ~ 1, data=proc_data)
+
+stargazer(reg1, type="text") #El 10.33 que sale en la consola es la media de la variable
+
+## 6.2 Regresión simple 
+reg2 <- lm(cohesion_barrial ~ edad, data=proc_data)
+reg3 <- lm(cohesion_barrial ~ educacion, data=proc_data)
+reg4 <- lm(cohesion_barrial ~ sexo, data=proc_data)
+
+knitreg(list(reg2, reg3, reg4), 
+        custom.model.names = c("Modelo 1",
+                               "Modelo 2",
+                               "Modelo 3"),
+        custom.note = "*** p < 0.001; ** p < 0.01; * p < 0.05",
+        custom.coef.names = c("Intercepto", 
+                              "Edad",
+                              "Educación media <br> <i>(Ref. Ed. básica)</i>", 
+                              "Educación superior", 
+                              "Mujer <br> <i>(Ref. Hombre)</i>"),
+        caption = "Cohesión barrial",
+        caption.above = TRUE)
+
+## 6.3 Regresión múltiple 
+reg5 <- lm(cohesion_barrial ~ edad + educacion, data=proc_data)
+reg6 <- lm(cohesion_barrial ~ edad + sexo, data=proc_data)
+reg7 <- lm(cohesion_barrial ~ educacion + sexo, data=proc_data)
+reg8 <- lm(cohesion_barrial ~ edad + educacion + sexo, data=proc_data)
+
+knitreg(list(reg5, reg6, reg7, reg8), 
+        custom.model.names = c("Modelo 1",
+                               "Modelo 2",
+                               "Modelo 3",
+                               "Modelo 4"),
+        custom.note = "*** p < 0.001; ** p < 0.01; * p < 0.05",
+        custom.coef.names = c("Intercepto", 
+                              "Edad",
+                              "Educación media <br> <i>(Ref. Ed. básica)</i>", 
+                              "Educación superior", 
+                              "Mujer <br> <i>(Ref. Hombre)</i>"),
+        caption = "Cohesión barrial",
+        caption.above = TRUE)
+
+## 6.4 Graficar regresiones
+plot_model(reg8, 
+           title = "", #quitar titulo
+           show.values = TRUE, #mostrar valor de efectos
+           dot.size = 3, #tamaño circulos
+           line.size = 1, #tamaño CI
+           value.size = 4, #tamaño valor efectoss
+           spacing = 1, #espacio entre efectos
+           vline.color = "red", # linea roja en punto neutro (0)
+           axis.labels = rev(c("Edad",
+                               "Educación media", 
+                               "Educación superior", 
+                               "Mujer")), #con rev porque automatico los tira en otro orden
+           show.legend = FALSE) + # variables dependientes
+  theme_bw()
+

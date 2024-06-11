@@ -1,0 +1,23 @@
+---
+title: "Práctico 10"
+author: "Joshe Nroambuena"
+format: revealjs
+editor: visual
+---
+
+# Introducción 
+
+## wao
+
+:::: {.columns}
+
+::: {.column width="40%"}
+Columna izquierda
+:::
+
+::: {.column width="60%"}
+Columna derecha
+:::
+
+::::
+

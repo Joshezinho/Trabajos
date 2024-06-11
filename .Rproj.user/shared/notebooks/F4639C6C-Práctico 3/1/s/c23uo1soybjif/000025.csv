@@ -1,0 +1,7 @@
+"0","graph3 <- ggplot(elsoc, aes(x = as.numeric(edad))) +"
+"0","  geom_histogram(binwidth=0.9, colour=""black"", fill=""purple"") +"
+"0","  theme_bw() +"
+"0","  xlab(""Edad"") +"
+"0","  ylab(""Cantidad"")"
+"0",""
+"0","graph3"
