@@ -7,7 +7,7 @@
 install.packages("pacman")
 
 # 1.1. Cargar paquetes
-pacman::p_load(sjlabelled, dplyr, car, stargazer, sjmisc, summarytools, kableExtra, sjPlot, corrplot, sessioninfo, ggplot2, fastDummies, ggeffects)
+pacman::p_load(sjlabelled, dplyr, car, stargazer, sjmisc, summarytools, kableExtra, sjPlot, corrplot, sessioninfo, ggplot2, fastDummies, ggeffects, texreg)
 
 # 1.2 Pasos previos 
 rm(list=ls())       # borrar todos los objetos en el espacio de trabajo
