@@ -17,6 +17,8 @@ options(scipen=999) # valores sin notación científica
 load(url("https://github.com/Joshezinho/Trabajos/raw/main/input/elsoc.rdata")) #Cargar base de datos
 
 #### 3. Recodificar variables para la regresión ####
+
+names(elsoc)
 ## 3.1 Sexo
 elsoc <- elsoc %>% 
   mutate(sexo = case_when(sexo == "Hombre"  ~ 1,
@@ -52,7 +54,6 @@ knitreg(list(fit01,fit02,fit03),
 #### 5. Generar base de datos procesada para el análisis ####
 ## 5.1 Reformatear objeto (elsoc y escala_elsoc) a BBDD
 elsoc <-as.data.frame(elsoc)
-escala_elsoc <- as.data.frame(escala_elsoc)
 
 ## 5.2 Guardar base de datos en una ruta particular
 save(elsoc, file ="input/elsoc.rdata")

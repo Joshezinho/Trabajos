@@ -1,0 +1,4 @@
+library(haven)
+CASEN <- read_sav("input/CASEN.sav")
+
+elsoc <- read_dta("input/ELSOC_W03_v2.00_Stata14.dta")

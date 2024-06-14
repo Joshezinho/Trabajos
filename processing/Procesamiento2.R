@@ -124,6 +124,12 @@ elsoc$esperanza <- recode(elsoc$esperanza, "1=0; 2=1; 3=2; 4=3; 5=4")
 elsoc$cambio_social <- recode(elsoc$cambio_social, "1=0; 2=1; 3=2; 4=3; 5=4")
 elsoc$valores <- recode(elsoc$valores, "1=0; 2=1; 3=2; 4=3; 5=4")
 
+## 4.4.0 Guardar BBDD para regresión
+elsoc_reg <- select(elsoc, edad, sexo, educ, comp, ident, esperanza, cambio_social, valores)
+names(elsoc)
+
+
+
 ## 4.5 Asignar etiquetas a los valores de las variables
 # 4.5.1 Sexo
 # Recodificación
