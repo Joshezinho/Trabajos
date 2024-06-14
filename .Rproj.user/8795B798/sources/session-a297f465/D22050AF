@@ -3,9 +3,9 @@
     "path": "~/GitHub/Trabajos/processing/Procesamiento práctico 4.R",
     "project_path": "processing/Procesamiento práctico 4.R",
     "type": "r_source",
-    "hash": "0",
+    "hash": "1302282900",
     "contents": "",
-    "dirty": true,
+    "dirty": false,
     "created": 1717625634986.0,
     "source_on_save": false,
     "relative_order": 5,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "21,0",
-        "scrollLine": "7"
+        "cursorPosition": "96,0",
+        "scrollLine": "79"
     },
     "folds": "",
-    "lastKnownWriteTime": 1718314247,
+    "lastKnownWriteTime": 1718327742,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1718326394003,
+    "last_content_update": 1718327742790,
     "read_only": false,
     "read_only_alternatives": []
 }
