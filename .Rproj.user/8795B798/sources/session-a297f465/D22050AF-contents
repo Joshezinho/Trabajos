@@ -14,27 +14,27 @@ rm(list=ls())       # borrar todos los objetos en el espacio de trabajo
 options(scipen=999) # valores sin notación científica
 
 #### 2. Cargar base de datos ####
-load(url("https://github.com/Joshezinho/Trabajos/raw/main/input/elsoc.rdata")) #Cargar base de datos
+load(url("https://github.com/Joshezinho/Trabajos/raw/main/input/elsoc_reg.rdata")) #Cargar base de datos
 
 #### 3. Recodificar variables para la regresión ####
 
-names(elsoc)
+names(elsoc_reg)
 ## 3.1 Sexo
-elsoc <- elsoc %>% 
+elsoc_reg <- elsoc_reg %>% 
   mutate(sexo = case_when(sexo == "Hombre"  ~ 1,
                           sexo == "Mujer" ~ 0))
 
 ## 3.2 Apoyo al movimiento estudiantil
-elsoc$apoyo <- (elsoc$comp+elsoc$ident+elsoc$esperanza+elsoc$cambio_social+elsoc$valores)
-summary(elsoc$apoyo)
+elsoc_reg$apoyo <- (elsoc_reg$comp+elsoc_reg$ident+elsoc_reg$esperanza+elsoc_reg$cambio_social+elsoc_reg$valores)
+summary(elsoc_reg$apoyo)
 
 #### 4. Seleccionar sólo variables a emplear
-elsoc <- select(elsoc, edad, sexo, educ, apoyo)
+elsoc_reg <- select(elsoc_reg, edad, sexo, educ, apoyo)
 
 #### 5. Regresión ####
-fit01<- lm(apoyo~sexo,data=elsoc)
-fit02<- lm(apoyo~sexo+edad,data=elsoc)
-fit03<- lm(apoyo~sexo+edad+educ,data=elsoc)
+fit01<- lm(apoyo~sexo,data=elsoc_reg)
+fit02<- lm(apoyo~sexo+edad,data=elsoc_reg)
+fit03<- lm(apoyo~sexo+edad+educ,data=elsoc_reg)
 
 labs01 <- c("Intercepto","Sexo (mujer)","Edad", "Educación Básica", "Educación Media", "Educación Superior")
 
@@ -53,8 +53,7 @@ knitreg(list(fit01,fit02,fit03),
 
 #### 5. Generar base de datos procesada para el análisis ####
 ## 5.1 Reformatear objeto (elsoc y escala_elsoc) a BBDD
-elsoc <-as.data.frame(elsoc)
+elsoc_reg <-as.data.frame(elsoc_reg)
 
 ## 5.2 Guardar base de datos en una ruta particular
-save(elsoc, file ="input/elsoc.rdata")
-save(escala_elsoc, file = "input/escala_elsoc.rdata")
+save(elsoc_reg, file ="input/elsoc_reg.rdata")
