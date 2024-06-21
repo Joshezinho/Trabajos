@@ -54,7 +54,8 @@ elsoc_reg$apoyo <- set_label(x = elsoc_reg$apoyo, label = "Apoyo al movimiento s
 get_label(elsoc_reg$apoyo)
 
 ## 3.3 Sexo
-elsoc_reg$sexo <- recode(elsoc_reg$sexo, "1=1; 2=0")
+frq(elsoc_reg$sexo)
+elsoc_reg$sexo <- recode(elsoc_reg$sexo, "1=1; 2=0") %>% as.numeric()
 
 ## 3.4 Nivel educativo
 ## Recodificación
@@ -64,6 +65,7 @@ elsoc_reg$educ <- car::recode(elsoc_reg$educ, "c(1,2)=0; c(3,4)=1; c(5,6,8)=2; c
 elsoc_reg$educ <- factor(elsoc_reg$educ,
                      labels = c("Sin Estudios", "Básica", "Media", "Superior"),
                      levels = c(0, 1, 2, 3))
+
 
 #### 4. Seleccionar sólo variables a emplear
 elsoc_reg <- select(elsoc_reg, edad, sexo, educ, apoyo)
